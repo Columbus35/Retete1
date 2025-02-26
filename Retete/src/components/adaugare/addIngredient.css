@@ -1,0 +1,176 @@
+.ingredientGeneral{
+   color: rgb(191, 194, 197);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.formular{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.celule{
+  letter-spacing: normal;
+}
+
+.ingredientFormHead{
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: rgb(191, 194, 197);
+}
+
+.ingredientMb-3{
+    position: relative;
+    width: 250px;
+    padding: 10px;
+}
+
+.ingredientMb-3 .ingredientInput{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(174, 180, 180);
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: rgb(191, 194, 197);
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.ingredientMb-3 .ingredientLabel{
+    position: absolute;
+    left: 0;
+    padding: 10;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgb(174, 180, 180) ;
+    text-transform: uppercase;
+    transform: translateY(-25px) translateX(15px);
+    transition: 0.5s;
+}
+
+.ingredientMb-3 .ingredientInput:valid ~ .ingredientLabel,
+.ingredientMb-3 .ingredientInput:focus ~ .ingredientLabel
+{
+  color: rgb(43, 165, 125);
+  transform: translateX(10px) translateY(-40px);
+  font-size: 0.9em;
+  padding: 0 10px;
+  background: rgb(30, 28, 28);
+  border-left: 1px solid rgb(43, 165, 125);
+  border-right: 1px solid rgb(43, 165, 125);
+  letter-spacing: 0.2em;
+}
+
+.ingredientMb-3 .ingredientInput:valid,
+.ingredientMb-3 .ingredientInput:focus {
+    border: 1px solid rgb(43, 165, 125);
+}
+
+.ingredientButon{
+    position: relative;
+    background: rgb(174, 180, 180);
+    color: rgb(174, 180, 180);
+    text-transform: uppercase;
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.ingredientButon:hover{
+    background: rgb(43, 165, 125);
+    color: rgb(43, 165, 125);
+    letter-spacing: 0.15em;
+    box-shadow: 0 0 20px rgb(43, 165, 125);
+}
+
+.ingredientButon::before{
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: rgb(30, 28, 28);
+}
+
+.ingredientButon .ingredientSpan{
+    position: relative;
+    z-index: 1;
+
+}
+
+.ingredientButon i{
+    position: absolute;
+    inset: 0;
+    display: block;
+
+}
+
+.ingredientButon i::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 20px;
+    height: 4px;
+    background: rgb(30, 28, 28);
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.ingredientButon:hover i::before{
+    width: 20px;
+    left: 20%;
+
+}
+
+.ingredientButon i::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 20px;
+    height: 4px;
+    background: rgb(30, 28, 28);
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.ingredientButon:hover i::after{
+    width: 20px;
+    left: 80%;
+    
+}
+
+.ingredientOption.inactive{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.ingredientOption{
+    border: 1px solid rgb(43, 165, 125);
+    background: rgb(30, 28, 28);
+
+}
+.ingredientInputMarka{
+     width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(174, 180, 180);
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: rgb(191, 194, 197);
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+

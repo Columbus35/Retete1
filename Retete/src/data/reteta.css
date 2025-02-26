@@ -1,0 +1,59 @@
+.reteta-details{
+    color: rgb(215, 211, 211);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.reteta-details h1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 30px;
+}
+
+.reteta-details .reteta-img{
+    background: var(--background);
+    background-size: cover;
+    height: 270px;
+    width: 400px;
+}
+
+.reteta-img {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  border-radius: 25px;
+  box-shadow: 7px 3px 28px 10px rgba(130, 128, 128, 0.23);
+}
+
+.h3-ingre{
+    position: relative;
+    left: 50%;
+    top: 70px;
+}
+
+.h3-rete{
+    padding: 30px;
+    position: relative;
+    left: 10%;
+    top: 100px;
+    width: 900px;
+    height: auto;
+}
+
+.h3-rete p{
+    font-size: 12px;
+}
+
+.navIcon-back{
+   color: rgb(215, 211, 211);
+   opacity: 30%;
+   transition: 0.5s;
+}
+
+.navIcon-back:hover{
+ opacity: 100%;
+}

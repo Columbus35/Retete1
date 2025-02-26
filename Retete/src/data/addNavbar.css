@@ -1,0 +1,78 @@
+.addBodyNav{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.addnavigation{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+
+.addnavigation ul {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    list-style: none;
+    gap: 100px; 
+    top: 80px;
+}
+
+.addnavigation .addNavText{
+    position: relative;
+    z-index: 1;
+}
+
+.addnavigation a{
+    opacity: 100%;
+    position: absolute;
+    display: flex;
+    width: 70px;
+    height: auto;
+    padding: 20px 50px;
+    background: rgb(45, 46, 46);
+    border-radius: 50px;
+    color: rgb(174, 180, 180);
+    font-size: 1em;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.addnavigation a:hover{
+     color: var(--clr);
+     letter-spacing: 0.2em;
+     text-shadow: 0 0 15px var(--clr),
+                  0 0 40px var(--clr);
+}
+
+.addnavigation a::before{
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -150%);
+    background: radial-gradient(var(--clr), transparent, transparent);
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.addnavigation a:hover::before{
+    opacity: 1;
+}
+
+.addnavigation a::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: rgb(30, 28, 28,0.8);
+    border-radius: 48px;
+}

@@ -1,0 +1,138 @@
+.categorieGeneral{
+   color: rgb(191, 194, 197);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.categorieFormHead{
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: rgb(191, 194, 197);
+}
+
+.categorieMb-3{
+    position: relative;
+    width: 250px;
+}
+
+.categorieMb-3 .categorieInput{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(174, 180, 180);
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: rgb(191, 194, 197);
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.categorieMb-3 .categorieLabel{
+    position: absolute;
+    left: 0;
+    padding: 10;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgb(174, 180, 180) ;
+    text-transform: uppercase;
+    transform: translateY(-25px) translateX(5px);
+    transition: 0.5s;
+}
+
+.categorieMb-3 .categorieInput:valid ~ .categorieLabel,
+.categorieMb-3 .categorieInput:focus ~ .categorieLabel
+{
+  color: rgb(47, 111, 185);
+  transform: translateX(10px) translateY(-40px);
+  font-size: 0.9em;
+  padding: 0 10px;
+  background: rgb(30, 28, 28);
+  border-left: 1px solid rgb(47, 111, 185);
+  border-right: 1px solid rgb(47, 111, 185);
+  letter-spacing: 0.2em;
+}
+
+.categorieMb-3 .categorieInput:valid,
+.categorieMb-3 .categorieInput:focus {
+    border: 1px solid rgb(47, 111, 185);
+}
+
+.categorieButon{
+    position: relative;
+    background: rgb(174, 180, 180);
+    color: rgb(174, 180, 180);
+    text-transform: uppercase;
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.categorieButon:hover{
+    background: rgb(47, 111, 185);
+    color: rgb(47, 111, 185);
+    letter-spacing: 0.15em;
+    box-shadow: 0 0 20px rgb(47, 111, 185);
+}
+
+.categorieButon::before{
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: rgb(30, 28, 28);
+}
+
+.categorieButon .categorieSpan{
+    position: relative;
+    z-index: 1;
+
+}
+
+.categorieButon i{
+    position: absolute;
+    inset: 0;
+    display: block;
+
+}
+
+.categorieButon i::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 20px;
+    height: 4px;
+    background: rgb(30, 28, 28);
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.categorieButon:hover i::before{
+    width: 20px;
+    left: 20%;
+
+}
+
+.categorieButon i::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 20px;
+    height: 4px;
+    background: rgb(30, 28, 28);
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.categorieButon:hover i::after{
+    width: 20px;
+    left: 80%;
+    
+}

@@ -1,0 +1,14 @@
+*{
+  font-size: 12px;
+}
+body {
+  background: rgb(30, 28, 28);
+  font-size: 12px;
+}
+
+.navbar{
+position: relative;
+display: flex;
+justify-content: flex-end;
+z-index: 20;
+}

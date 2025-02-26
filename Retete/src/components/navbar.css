@@ -1,0 +1,131 @@
+
+*{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.bodyNav{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.navigation {
+  width: 250px;
+  height: 70px;
+  margin: 0;
+  background: rgb(95, 101, 101);
+  position: relative;
+  opacity: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transform: translateZ(30px);
+}
+.navigation ul{
+    padding: 20px;
+    display: flex;
+    width: 350px;
+}
+
+.navigation ul li{
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+
+.navigation ul li a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(212, 219, 219);
+  opacity: 80%;
+  size: 50px;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.navigation ul li a .navIcon{
+ position: relative;
+ display: block;
+ line-height: 75px;
+ font-size: 1.5em;
+ text-align: center;
+ transition: 0.5s;
+}
+
+.navigation ul li.active a .navIcon{
+  color: rgb(20, 108, 108);
+  transform: translateY(-30px);
+}
+
+.navigation ul li a .navText{
+  position: absolute;
+  font-weight: 400;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.navigation ul li.active a .navText{
+  opacity: 100;
+  transform: translateY(10px);
+}
+
+.navIndicator{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: rgb(140, 189, 189);
+  top: -50%;
+  border-radius: 50%;
+  border: 6px solid rgb(30, 28, 28);
+  transition: 0.5s;
+}
+.navIndicator::before{
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: -18px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  transform: translateY(-10px);
+  box-shadow: 0px -10px 0 0 rgb(30, 28, 28);
+}
+
+.navIndicator::after{
+  content: '';
+  position: absolute;
+  top: 60%;
+  right: -18px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  transform: translateY(-10px);
+  box-shadow: 0px -10px 0 0 rgb(30, 28, 28);
+}
+
+.navigation ul li:nth-child(1).active ~ .navIndicator{
+  transform: translateX(calc(70px * 0));
+}
+.navigation ul li:nth-child(2).active ~ .navIndicator{
+  transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .navIndicator{
+  transform: translateX(calc(70px * 2));
+}

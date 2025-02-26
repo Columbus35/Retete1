@@ -1,0 +1,180 @@
+.rereteLista{
+    box-sizing: border-box;
+}
+
+.reteteCard{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    left: 35%;
+    width: 400px;
+    height: 500px;
+}
+
+.reteteCard .reteteImgBox{
+    position: relative;
+    width: 100%;
+    height: 270px;
+    border-radius: 15px;
+    background: var(--background-url);
+    box-shadow: 9px -13px 28px 1px rgba(143, 142, 142, 0.28);
+}
+
+.reteteCard .reteteImgBox::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background:transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 rgb(30, 28, 28);
+}
+
+.reteteCard .reteteImgBox::after{
+    content: '';
+    position: absolute;
+    bottom: 110px;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background:transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 rgb(30, 28, 28);
+}
+
+.reteteCard .reteteContent{
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: rgb(48, 44, 44);
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    box-shadow: 14px 18px 28px -11px rgba(143, 142, 142, 0.28);
+}
+
+.reteteCard .reteteContent .reteteCategorii{
+    position: absolute;
+    width: 200px;
+    height: 50%;
+    background: rgb(48, 44, 44);
+    top: -120px;
+    border-top: 10px solid rgb(30, 28, 28);
+    border-right: 10px solid rgb(30, 28, 28);
+    border-top-right-radius: 10px;
+}
+
+.reteteCard .reteteContent .reteteCategorii::before{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background:transparent;
+    border-radius: 50%;
+    box-shadow: -10px -10px 0 rgb(30, 28, 28);
+}
+
+.reteteCard .reteteContent .reteteCategorii::after{
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    right: -34px;
+    width: 25px;
+    height: 25px;
+    background:transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 rgb(30, 28, 28);
+}
+
+.reteteCard .reteteContent .reteteCategorii .textCategorii{
+    position: relative;
+    background: var(--bkground);
+    padding: 20px 20px;
+    margin: 15px 15px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-right {
+  position: absolute;
+  filter: drop-shadow(0px 0px 5px #555);
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  right: 1rem;
+  z-index: 10;
+  top: 50%;
+  opacity: 60%;
+}
+
+.arrow-left{
+  position: absolute;
+  filter: drop-shadow(0px 0px 5px #555);
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  left: 1rem;
+  top: 50%;
+  z-index: 3;
+  opacity: 60%;
+}
+
+.arrow:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.bootenReteta{
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+
+.booten{
+    padding: 15px 30px;
+    background: rgb(185, 39, 39);
+    border-radius: 25px;
+    border: 2px solid rgb(185, 39, 39);
+    transition: 0.5s;
+}
+
+.booten .navText{
+    list-style: none;
+    text-decoration: none;
+    color: rgb(173, 164, 164);
+}
+
+.booten .navIcon{
+   list-style: none;
+    text-decoration: none;
+    color: rgb(173, 164, 164); 
+}
+
+.booten:hover{
+    background: transparent;
+}
+
+.titleContent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titleContent h1{
+    color: rgb(173, 164, 164);
+    font-size: 20px;
+}
+
+.titleContent p{
+    color: rgb(173, 164, 164);
+    font-size: 12px;
+}
