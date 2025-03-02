@@ -4,14 +4,14 @@ import "./carousel.css";
 
 export const Carousel = () => {
   const [slides, setSlides] = useState([]);
-  const [slide, setSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
-    setSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
+    setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
   };
 
   const prevSlide = () => {
-    setSlide((prevSlide) => (prevSlide === 0 ? slides.length - 1 : prevSlide - 1));
+    setCurrentSlide((prevSlide) => (prevSlide === 0 ? slides.length - 1 : prevSlide - 1));
   };
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const Carousel = () => {
         const response = await fetch("http://localhost:5051/Cover"); 
         const jsonData = await response.json();
         const formattedSlides = jsonData.map((item) => ({
-          src: `http://localhost:5051/imagini/${item.imagine}`,
+          src: `http://localhost:5051/images/${item.image}`,
           alt: item.alt || "Slide Image",
           title: item.title || "Slide Title",
           content: item.content || "Slide Content",
@@ -28,7 +28,7 @@ export const Carousel = () => {
 
         setSlides(formattedSlides);
       } catch (error) {
-        console.error("Datele nu au putut fi citite:", error);
+        console.error("Could not fetch data:", error);
       }
     };
 
@@ -50,7 +50,7 @@ export const Carousel = () => {
       </span>
 
       {slides.map((item, idx) => (
-        <div key={idx} className={slide === idx ? "cSlide" : "cSlide cSlide-hidden"}>
+        <div key={idx} className={currentSlide === idx ? "cSlide" : "cSlide cSlide-hidden"}>
           <img src={item.src} alt={item.alt} />
           <div className="cSlide-content">
             <h3>{item.title}</h3>
@@ -67,8 +67,8 @@ export const Carousel = () => {
         {slides.map((_, idx) => (
           <button
             key={idx}
-            className={slide === idx ? "cIndicator" : "cIndicator cIndicator-inactive"}
-            onClick={() => setSlide(idx)}
+            className={currentSlide === idx ? "cIndicator" : "cIndicator cIndicator-inactive"}
+            onClick={() => setCurrentSlide(idx)}
           ></button>
         ))}
       </span>

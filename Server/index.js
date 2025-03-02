@@ -4,120 +4,116 @@ import fileUpload from "express-fileupload";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
-import fire from "./init.js";
-import { getFirestore, collection, getDocs, doc, addDoc} from "firebase/firestore";
+import firebaseApp from "./init.js";
+import { getFirestore, collection, getDocs, doc, addDoc } from "firebase/firestore";
 
 const port = 5051;
 const app = express();
 app.use(cors());
 app.use(fileUpload());
 app.use(express.static("files"));
-const __filename = fileURLToPath(import.meta.url);  
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const imaginiPath = path.join(__dirname, 'imagini');
-app.use('/imagini', express.static(imaginiPath));
+const imagesPath = path.join(__dirname, 'images');
+app.use('/images', express.static(imagesPath));
 app.use(express.json());
 
-const db = getFirestore(fire);
+const db = getFirestore(firebaseApp);
 
-app.get("/Cover", async (req, res) => {
-  const listaCover = await getDocs(collection(db, "Cover"));
-  let newCover = await listaCover.docs.map((item) => {
+app.get("/covers", async (req, res) => {
+  const coverList = await getDocs(collection(db, "Cover"));
+  let formattedCovers = coverList.docs.map((item) => {
     let cover = item.data();
-    cover.id = item.id; 
+    cover.id = item.id;
     return cover;
   });
-  res.status(200).send(JSON.stringify(newCover));
+  res.status(200).json(formattedCovers);
 });
 
-app.get("/Categorie", async (req, res) => {
-  const listaCategorie = await getDocs(collection(db, "Categorie"));
-  let newCategorie = await listaCategorie.docs.map((item) => {
-    let categorie = item.data();
-    categorie.id = item.id; 
-    return categorie;
+app.get("/categories", async (req, res) => {
+  const categoryList = await getDocs(collection(db, "Categorie"));
+  let formattedCategories = categoryList.docs.map((item) => {
+    let category = item.data();
+    category.id = item.id;
+    return category;
   });
-  res.status(200).send(JSON.stringify(newCategorie));
+  res.status(200).json(formattedCategories);
 });
 
-app.get("/Reteta", async (req, res) => {
-  const listaReteta = await getDocs(collection(db, "Reteta"));
-  let newReteta = await listaReteta.docs.map((item) => {
-    let reteta = item.data();
-    reteta.id = item.id; 
-    return reteta;
+app.get("/recipes", async (req, res) => {
+  const recipeList = await getDocs(collection(db, "Reteta"));
+  let formattedRecipes = recipeList.docs.map((item) => {
+    let recipe = item.data();
+    recipe.id = item.id;
+    return recipe;
   });
-  res.status(200).send(JSON.stringify(newReteta));
+  res.status(200).json(formattedRecipes);
 });
 
-app.get("/Ingredient", async (req, res) => {
-  const listaIngredient = await getDocs(collection(db, "Ingredient"));
-  let newIngredient = await listaIngredient.docs.map((item) => {
+app.get("/ingredients", async (req, res) => {
+  const ingredientList = await getDocs(collection(db, "Ingredient"));
+  let formattedIngredients = ingredientList.docs.map((item) => {
     let ingredient = item.data();
-    ingredient.id = item.id; 
+    ingredient.id = item.id;
     return ingredient;
   });
-  res.status(200).send(JSON.stringify(newIngredient));
+  res.status(200).json(formattedIngredients);
 });
 
-app.post("/adaugCategorie", async (req, res) => {
-  const { categorie, culoare } = req.body;
+app.post("/add-category", async (req, res) => {
+  const { category, color } = req.body;
 
   try {
-    const newCategorie = {
-      categorie: categorie,
-      culoare: culoare,
+    const newCategory = {
+      category: category,
+      color: color,
     };
 
-    const docRef = await addDoc(collection(db, "Categorie"), newCategorie);
+    const docRef = await addDoc(collection(db, "Categorie"), newCategory);
 
-    res.status(201).send({ message: "Datele au fost adaugate cu succes!", id: docRef.id });
+    res.status(201).json({ message: "Data added successfully!", id: docRef.id });
   } catch (error) {
-    console.error("A aparut o eroare la adaugare:", error);
-    res.status(500).send({ message: "A aparut o eroare la adaugare." });
+    console.error("Error adding data:", error);
+    res.status(500).json({ message: "An error occurred while adding data." });
   }
 });
 
-app.post("/adaugIngredient", async (req, res) => {
+app.post("/add-ingredient", async (req, res) => {
   const { ingredient } = req.body;
 
   try {
-    const newIngredient = {
-      ingredient : ingredient
-    };
-
+    const newIngredient = { ingredient: ingredient };
     const docRef = await addDoc(collection(db, "Ingredient"), newIngredient);
 
-    res.status(201).send({ message: "Datele au fost adaugate cu succes!", id: docRef.id });
+    res.status(201).json({ message: "Data added successfully!", id: docRef.id });
   } catch (error) {
-    console.error("A aparut o eroare la adaugare:", error);
-    res.status(500).send({ message: "A aparut o eroare la adaugare." });
+    console.error("Error adding data:", error);
+    res.status(500).json({ message: "An error occurred while adding data." });
   }
 });
 
-app.post("/adaugReteta", async (req, res) => {
-  const { ingredient, titlu, categorie, descriere, reteta, imagine } = req.body;
+app.post("/add-recipe", async (req, res) => {
+  const { ingredient, title, category, description, recipe, image } = req.body;
 
   try {
-    const newReteta = {
-      ingredient : ingredient,
-      titlu : titlu,
-      categorie : categorie,
-      descriere : descriere,
-      reteta : reteta,
-      imagine: imagine
+    const newRecipe = {
+      ingredient: ingredient,
+      title: title,
+      category: category,
+      description: description,
+      recipe: recipe,
+      image: image,
     };
 
-    const docRef = await addDoc(collection(db, "Reteta"), newReteta);
+    const docRef = await addDoc(collection(db, "Reteta"), newRecipe);
 
-    res.status(201).send({ message: "Datele au fost adaugate cu succes!", id: docRef.id });
+    res.status(201).json({ message: "Data added successfully!", id: docRef.id });
   } catch (error) {
-    console.error("A aparut o eroare la adaugare:", error);
-    res.status(500).send({ message: "A aparut o eroare la adaugare." });
+    console.error("Error adding data:", error);
+    res.status(500).json({ message: "An error occurred while adding data." });
   }
 });
 
-
 app.listen(port, () => {
-  console.log(`Serverul așteaptă comenzi pe portul ${port}`);
+  console.log(`Server is listening on port ${port}`);
 });

@@ -17,8 +17,8 @@ const NavBar = () => {
             <ul>
                 {[
                     { name: 'Home', icon: <FaHome />, path: '/home' },
-                    { name: 'Retete', icon: <FaPizzaSlice />, path: '/carte' },
-                    { name: 'Add-reteta', icon: <FaPlus />, path: '/add-reteta' },
+                    { name: 'Recipes', icon: <FaPizzaSlice />, path: '/book' },
+                    { name: 'Add Recipe', icon: <FaPlus />, path: '/add-recipe' },
                 ].map((item, index) => (
                     <li
                         key={index}
